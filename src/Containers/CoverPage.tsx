@@ -7,6 +7,7 @@ import Neddle from "../Assets/Landscape/landmark-needle-svgrepo.svg";
 import Big from "../Assets/Landscape/ben-big-svgrepo.svg";
 import Australia from "../Assets/Landscape/australia-svgrepo.svg";
 import { Birds } from "../Components/Birds";
+import { Clouds } from "../Components/Clouds";
 
 import { border, height } from "@mui/system";
 
@@ -57,11 +58,27 @@ const useStyles = makeStyles(() => ({
     position: "absolute",
     width: "10vw",
   },
+  clouds: {
+    position: "absolute",
+    width: "100vw",
+  },
   birdNeeddle: {
     position: "absolute",
     width: "12vw",
     left: "40vw",
     top: "-10vh",
+  },
+  birdBig: {
+    position: "absolute",
+    width: "10vw",
+    left: "66vw",
+    top: "15vh",
+  },
+  birdAustralia: {
+    position: "absolute",
+    width: "10vw",
+    left: "83vw",
+    top: "2vh",
   },
   gridBirdContainer: {
     top: "20vh",
@@ -73,7 +90,19 @@ const useStyles = makeStyles(() => ({
 }));
 //#f6f4d8
 //#2b3b4b
-
+const cloudVariants = {
+  hidden: {
+    pathLength: 0,
+  },
+  visible: {
+    opacity: 1,
+    x: [-25, 300],
+    transition: {
+      repeat: Infinity,
+      duration: 70,
+    },
+  },
+};
 const bodyStyle = {
   hidden: {
     pathLength: 0,
@@ -81,10 +110,10 @@ const bodyStyle = {
   visible: {
     opacity: 1,
     x: [0, -10, 0, 10],
-    y: [0.5, -10, 0.5, -10],
+    y: [0, -10.5, 0, -10.5],
     transition: {
       yoyo: Infinity,
-      duration: 10,
+      duration: 15,
     },
   },
 };
@@ -100,7 +129,7 @@ const LeftWingStyle = {
     rotate: [0, -32, 0, -32],
     transition: {
       yoyo: Infinity,
-      duration: 10,
+      duration: 15,
     },
   },
 };
@@ -115,7 +144,7 @@ const RightWingStyle = {
     rotate: [0, 32, 0, 32],
     transition: {
       yoyo: Infinity,
-      duration: 10,
+      duration: 15,
     },
   },
 };
@@ -129,7 +158,7 @@ const bodyStyle2 = {
     y: [-0.5, 10, -0.5, 10],
     transition: {
       yoyo: Infinity,
-      duration: 8,
+      duration: 18,
     },
   },
 };
@@ -144,7 +173,7 @@ const LeftWingStyle2 = {
     rotate: [-32, 0, -32, 0],
     transition: {
       yoyo: Infinity,
-      duration: 8,
+      duration: 18,
     },
   },
 };
@@ -159,7 +188,7 @@ const RightWingStyle2 = {
     rotate: [32, 0, 32, 0],
     transition: {
       yoyo: Infinity,
-      duration: 8,
+      duration: 18,
     },
   },
 };
@@ -183,7 +212,31 @@ export const CoverPage: React.FC<CoverPageProps> = (props: CoverPageProps) => {
           bodyStyle={bodyStyle2}
           birdStyle={classes.birdNeeddle}
           pathColor={classes.pathColor}
-          viewBox={"35 25 30 30"}
+          viewBox={"34 25 30 30"}
+        />
+        <Birds
+          leftWingStyle={LeftWingStyle}
+          rightWingStyle={RightWingStyle}
+          bodyStyle={bodyStyle}
+          birdStyle={classes.birdBig}
+          pathColor={classes.pathColor}
+          viewBox={"34 10 30 30"}
+        />
+        <Birds
+          leftWingStyle={LeftWingStyle2}
+          rightWingStyle={RightWingStyle2}
+          bodyStyle={bodyStyle2}
+          birdStyle={classes.birdAustralia}
+          pathColor={classes.pathColor}
+          viewBox={"34 25 30 30"}
+        />
+      </Grid>
+      <Grid item xs={12} className={classes.gridBirdContainer}>
+        <Clouds
+          cloudVariant={cloudVariants}
+          cloudStyle={classes.clouds}
+          pathColor={classes.pathColor}
+          viewBox={"0 0 300 30"}
         />
       </Grid>
       <Grid item xs={3} className={classes.landsCape}>

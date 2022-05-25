@@ -1,4 +1,17 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: #6f5643;
+}
+@font-face {
+  font-family: "sweetHipster";
+  src: url(./Assets/Fonts/SweetHipster-PzlE.ttf);
+}
+@font-face {
+  font-family: "Breylone";
+  src: url(./Assets/Fonts/Breylone-0WGwr.ttf);
+}
+@font-face {
+  font-family: "Motherva";
+  src: url(./Assets/Fonts/Motherva-qZAyl.otf);
 }

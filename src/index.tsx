@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { CoverPage } from "./Containers/CoverPage";
+import { Screen } from "./Containers/Screen";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -9,7 +9,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<CoverPage />} />
+      <Route path="/" element={<Screen />} />
     </Routes>
   </BrowserRouter>
 );

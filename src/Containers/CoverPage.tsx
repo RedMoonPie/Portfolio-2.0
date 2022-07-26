@@ -1,10 +1,11 @@
 import React from "react";
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import EiffelIcon from "../Assets/Landscape/eiffel-svgrepo.svg";
 import Neddle from "../Assets/Landscape/landmark-needle-svgrepo.svg";
 import Big from "../Assets/Landscape/ben-big-svgrepo.svg";
 import Australia from "../Assets/Landscape/australia-svgrepo.svg";
+
 import { Birds } from "../Components/Birds";
 import { Clouds } from "../Components/Clouds";
 import {
@@ -120,86 +121,79 @@ export const CoverPage: React.FC<CoverPageProps> = (props: CoverPageProps) => {
   const classes = useStyles();
 
   return (
-    <Grid container>
-      <Grid xs={8} container item className={classes.backgroundCover}>
-        <Grid item xs={12} className={classes.gridBirdContainer}>
-          <Birds
-            leftWingStyle={LeftWingStyle}
-            rightWingStyle={RightWingStyle}
-            bodyStyle={bodyStyle}
-            birdStyle={classes.birds}
-            pathColor={classes.pathColor}
-            viewBox={"35 10 30 30"}
-          />
-          <Birds
-            leftWingStyle={LeftWingStyle2}
-            rightWingStyle={RightWingStyle2}
-            bodyStyle={bodyStyle2}
-            birdStyle={classes.birdNeeddle}
-            pathColor={classes.pathColor}
-            viewBox={"34 25 30 30"}
-          />
-          <Birds
-            leftWingStyle={LeftWingStyle}
-            rightWingStyle={RightWingStyle}
-            bodyStyle={bodyStyle}
-            birdStyle={classes.birdBig}
-            pathColor={classes.pathColor}
-            viewBox={"34 10 30 30"}
-          />
-          <Birds
-            leftWingStyle={LeftWingStyle2}
-            rightWingStyle={RightWingStyle2}
-            bodyStyle={bodyStyle2}
-            birdStyle={classes.birdAustralia}
-            pathColor={classes.pathColor}
-            viewBox={"34 25 30 30"}
-          />
-        </Grid>
-        <Grid item xs={12} className={classes.gridBirdContainer}>
-          <Clouds
-            cloudVariant={cloudVariants}
-            cloudStyle={classes.clouds}
-            pathColor={classes.cloudPathColor}
-            viewBox={"0 0 300 30"}
-          />
-          <Clouds
-            cloudVariant={cloudVariants2}
-            cloudStyle={classes.clouds2}
-            pathColor={classes.cloudPathColor}
-            viewBox={"0 0 300 30"}
-          />
-        </Grid>
-        <Grid item xs={3} className={classes.landsCape}>
-          <img src={EiffelIcon} alt="Paris" className={classes.eiffelStyle} />
-        </Grid>
-        <Grid item xs={3} className={classes.landsCape}>
-          <img src={Neddle} alt="Paris" className={classes.neddle} />
-        </Grid>
-        <Grid item xs={3} className={classes.landsCape}>
-          <img src={Big} alt="Paris" className={classes.big} />
-        </Grid>
-        <Grid item xs={3} className={classes.landsCape}>
-          <img src={Australia} alt="Paris" className={classes.australia} />
-        </Grid>
-        <Grid item xs={12} className={classes.vintageText}>
-          <Typography
-            style={{
-              fontFamily: "sweetHipster",
-              fontSize: "6rem",
-              color: "#6f5643",
-              fontWeight: 300,
-            }}
-          >
-            Curly Coding
-          </Typography>
-        </Grid>
+    <>
+      <Grid item xs={12} className={classes.gridBirdContainer}>
+        <Birds
+          leftWingStyle={LeftWingStyle}
+          rightWingStyle={RightWingStyle}
+          bodyStyle={bodyStyle}
+          birdStyle={classes.birds}
+          pathColor={classes.pathColor}
+          viewBox={"35 10 30 30"}
+        />
+        <Birds
+          leftWingStyle={LeftWingStyle2}
+          rightWingStyle={RightWingStyle2}
+          bodyStyle={bodyStyle2}
+          birdStyle={classes.birdNeeddle}
+          pathColor={classes.pathColor}
+          viewBox={"34 25 30 30"}
+        />
+        <Birds
+          leftWingStyle={LeftWingStyle}
+          rightWingStyle={RightWingStyle}
+          bodyStyle={bodyStyle}
+          birdStyle={classes.birdBig}
+          pathColor={classes.pathColor}
+          viewBox={"34 10 30 30"}
+        />
+        <Birds
+          leftWingStyle={LeftWingStyle2}
+          rightWingStyle={RightWingStyle2}
+          bodyStyle={bodyStyle2}
+          birdStyle={classes.birdAustralia}
+          pathColor={classes.pathColor}
+          viewBox={"34 25 30 30"}
+        />
       </Grid>
-      <Grid container item xs={4} spacing={2}>
-        <Grid xs={12} item className={classes.retroControlContainer}>
-          Hola
-        </Grid>
+      <Grid item xs={12} className={classes.gridBirdContainer}>
+        <Clouds
+          cloudVariant={cloudVariants}
+          cloudStyle={classes.clouds}
+          pathColor={classes.cloudPathColor}
+          viewBox={"0 0 300 30"}
+        />
+        <Clouds
+          cloudVariant={cloudVariants2}
+          cloudStyle={classes.clouds2}
+          pathColor={classes.cloudPathColor}
+          viewBox={"0 0 300 30"}
+        />
       </Grid>
-    </Grid>
+      <Grid item xs={3} className={classes.landsCape}>
+        <img src={EiffelIcon} alt="Paris" className={classes.eiffelStyle} />
+      </Grid>
+      <Grid item xs={3} className={classes.landsCape}>
+        <img src={Neddle} alt="Paris" className={classes.neddle} />
+      </Grid>
+      <Grid item xs={3} className={classes.landsCape}>
+        <img src={Big} alt="Paris" className={classes.big} />
+      </Grid>
+      <Grid item xs={3} className={classes.landsCape}>
+        <img src={Australia} alt="Paris" className={classes.australia} />
+      </Grid>
+      <Grid item xs={12} className={classes.vintageText}>
+        <Typography
+          style={{
+            fontFamily: "sweetHipster",
+            fontSize: "6rem",
+            color: "#6f5643",
+            fontWeight: 300,
+          }}
+        >
+          Curly Coding
+        </Typography>
+      </Grid>
+    </>
   );
 };

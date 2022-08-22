@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import { makeStyles } from "@mui/styles";
 import { motion, useAnimation } from "framer-motion";
 
-export interface RetroControllerProps {}
+export interface RetroControllerProps {
+  nextScreen: (index: number) => void;
+  currentScreen: number;
+}
 const useStyles = makeStyles(() => ({
   controller: { width: "33vw", height: "99vh" },
 }));
@@ -86,14 +89,8 @@ export const RetroController: React.FC<RetroControllerProps> = (
       transition: { duration: 0 },
     },
   };
-  const crossVariants = {
-    hidden: {
-      opacity: 0,
-    },
-    visible: {
-      opacity: 1,
-    },
-  };
+
+  const { nextScreen, currentScreen } = props;
   return (
     <div className={classes.controller}>
       <motion.svg
@@ -118,7 +115,7 @@ export const RetroController: React.FC<RetroControllerProps> = (
             id="c8df7ca4-a13f-4e25-a475-8e1073cdee52"
           >
             <rect
-              vector-effect="non-scaling-stroke"
+              vectorEffect="non-scaling-stroke"
               x="-33.085"
               y="-33.085"
               rx="4"
@@ -126,14 +123,14 @@ export const RetroController: React.FC<RetroControllerProps> = (
               width="66.17"
               height="66.17"
               stroke=" rgb(0,0,0)"
-              stroke-width="0"
-              stroke-dasharray=" none"
-              stroke-linecap=" butt"
-              stroke-dashoffset="0"
-              stroke-linejoin=" miter"
-              stroke-miterlimit="4"
+              strokeWidth="0"
+              strokeDasharray=" none"
+              strokeLinecap="butt"
+              strokeDashoffset="0"
+              strokeLinejoin="miter"
+              strokeMiterlimit="4"
               fill=" rgb(204,190,177)"
-              fill-rule=" nonzero"
+              fillRule="nonzero"
               opacity="0.91"
               id="svg_3"
             />
@@ -143,7 +140,7 @@ export const RetroController: React.FC<RetroControllerProps> = (
             id="1bfb7af7-c23b-41e9-8996-67085654ee9c"
           >
             <rect
-              vector-effect="non-scaling-stroke"
+              vectorEffect="non-scaling-stroke"
               x="-33.085"
               y="-33.085"
               rx="4"
@@ -151,14 +148,14 @@ export const RetroController: React.FC<RetroControllerProps> = (
               width="66.17"
               height="66.17"
               stroke=" rgb(0,0,0)"
-              stroke-width="0"
-              stroke-dasharray=" none"
-              stroke-linecap=" butt"
-              stroke-dashoffset="0"
-              stroke-linejoin=" miter"
-              stroke-miterlimit="4"
+              strokeWidth="0"
+              strokeDasharray=" none"
+              strokeLinecap="butt"
+              strokeDashoffset="0"
+              strokeLinejoin="miter"
+              strokeMiterlimit="4"
               fill=" rgb(54,54,54)"
-              fill-rule=" nonzero"
+              fillRule="nonzero"
               id="svg_4"
             />
           </g>
@@ -167,7 +164,7 @@ export const RetroController: React.FC<RetroControllerProps> = (
             id="b4ce49c2-3a4b-4108-9ce5-4e442ce29fba"
           >
             <rect
-              vector-effect="non-scaling-stroke"
+              vectorEffect="non-scaling-stroke"
               x="-33.085"
               y="-33.085"
               rx="8"
@@ -175,14 +172,14 @@ export const RetroController: React.FC<RetroControllerProps> = (
               width="66.17"
               height="66.17"
               stroke=" rgb(0,0,0)"
-              stroke-width="0"
-              stroke-dasharray=" none"
-              stroke-linecap=" butt"
-              stroke-dashoffset="0"
-              stroke-linejoin=" miter"
-              stroke-miterlimit="4"
+              strokeWidth="0"
+              strokeDasharray=" none"
+              strokeLinecap="butt"
+              strokeDashoffset="0"
+              strokeLinejoin="miter"
+              strokeMiterlimit="4"
               fill=" rgb(209 196 184)"
-              fill-rule=" nonzero"
+              fillRule="nonzero"
               id="svg_5"
             />
           </g>
@@ -191,7 +188,7 @@ export const RetroController: React.FC<RetroControllerProps> = (
             id="b4ce49c2-3a4b-4108-9ce5-4e442ce29fba"
           >
             <rect
-              vector-effect="non-scaling-stroke"
+              vectorEffect="non-scaling-stroke"
               x="-33.085"
               y="-33.085"
               rx="8"
@@ -199,14 +196,14 @@ export const RetroController: React.FC<RetroControllerProps> = (
               width="66.17"
               height="66.17"
               stroke=" rgb(0,0,0)"
-              stroke-width="0"
-              stroke-dasharray=" none"
-              stroke-linecap=" butt"
-              stroke-dashoffset="0"
-              stroke-linejoin=" miter"
-              stroke-miterlimit="4"
+              strokeWidth="0"
+              strokeDasharray=" none"
+              strokeLinecap="butt"
+              strokeDashoffset="0"
+              strokeLinejoin="miter"
+              strokeMiterlimit="4"
               fill=" rgb(204,190,177)"
-              fill-rule=" nonzero"
+              fillRule="nonzero"
               id="svg_6"
             />
           </g>
@@ -215,7 +212,7 @@ export const RetroController: React.FC<RetroControllerProps> = (
             id="b4ce49c2-3a4b-4108-9ce5-4e442ce29fba"
           >
             <rect
-              vector-effect="non-scaling-stroke"
+              vectorEffect="non-scaling-stroke"
               x="-33.085"
               y="-33.085"
               rx="8"
@@ -223,14 +220,14 @@ export const RetroController: React.FC<RetroControllerProps> = (
               width="66.17"
               height="66.17"
               stroke=" rgb(0,0,0)"
-              stroke-width="0"
-              stroke-dasharray=" none"
-              stroke-linecap=" butt"
-              stroke-dashoffset="0"
-              stroke-linejoin=" miter"
-              stroke-miterlimit="4"
+              strokeWidth="0"
+              strokeDasharray=" none"
+              strokeLinecap="butt"
+              strokeDashoffset="0"
+              strokeLinejoin="miter"
+              strokeMiterlimit="4"
               fill=" rgb(204,190,177)"
-              fill-rule=" nonzero"
+              fillRule="nonzero"
               id="svg_7"
             />
           </g>
@@ -239,7 +236,7 @@ export const RetroController: React.FC<RetroControllerProps> = (
             id="b4ce49c2-3a4b-4108-9ce5-4e442ce29fba"
           >
             <rect
-              vector-effect="non-scaling-stroke"
+              vectorEffect="non-scaling-stroke"
               x="-33.085"
               y="-33.085"
               rx="8"
@@ -247,14 +244,14 @@ export const RetroController: React.FC<RetroControllerProps> = (
               width="66.17"
               height="66.17"
               stroke=" rgb(0,0,0)"
-              stroke-width="0"
-              stroke-dasharray=" none"
-              stroke-linecap=" butt"
-              stroke-dashoffset="0"
-              stroke-linejoin=" miter"
-              stroke-miterlimit="4"
+              strokeWidth="0"
+              strokeDasharray=" none"
+              strokeLinecap="butt"
+              strokeDashoffset="0"
+              strokeLinejoin="miter"
+              strokeMiterlimit="4"
               fill=" rgb(204,190,177)"
-              fill-rule=" nonzero"
+              fillRule="nonzero"
               id="svg_8"
             />
           </g>
@@ -263,7 +260,7 @@ export const RetroController: React.FC<RetroControllerProps> = (
             id="b4ce49c2-3a4b-4108-9ce5-4e442ce29fba"
           >
             <rect
-              vector-effect="non-scaling-stroke"
+              vectorEffect="non-scaling-stroke"
               x="-33.085"
               y="-33.085"
               rx="8"
@@ -271,14 +268,14 @@ export const RetroController: React.FC<RetroControllerProps> = (
               width="66.17"
               height="66.17"
               stroke=" rgb(0,0,0)"
-              stroke-width="0"
-              stroke-dasharray=" none"
-              stroke-linecap=" butt"
-              stroke-dashoffset="0"
-              stroke-linejoin=" miter"
-              stroke-miterlimit="4"
+              strokeWidth="0"
+              strokeDasharray=" none"
+              strokeLinecap="butt"
+              strokeDashoffset="0"
+              strokeLinejoin="miter"
+              strokeMiterlimit="4"
               fill=" rgb(229,219,209)"
-              fill-rule=" nonzero"
+              fillRule="nonzero"
               id="svg_9"
             />
           </g>
@@ -287,7 +284,7 @@ export const RetroController: React.FC<RetroControllerProps> = (
             id="b4ce49c2-3a4b-4108-9ce5-4e442ce29fba"
           >
             <rect
-              vector-effect="non-scaling-stroke"
+              vectorEffect="non-scaling-stroke"
               x="-33.085"
               y="-33.085"
               rx="8"
@@ -295,14 +292,14 @@ export const RetroController: React.FC<RetroControllerProps> = (
               width="66.17"
               height="66.17"
               stroke=" rgb(0,0,0)"
-              stroke-width="0"
-              stroke-dasharray=" none"
-              stroke-linecap=" butt"
-              stroke-dashoffset="0"
-              stroke-linejoin=" miter"
-              stroke-miterlimit="4"
+              strokeWidth="0"
+              strokeDasharray=" none"
+              strokeLinecap="butt"
+              strokeDashoffset="0"
+              strokeLinejoin="miter"
+              strokeMiterlimit="4"
               fill=" rgb(229,219,209)"
-              fill-rule=" nonzero"
+              fillRule="nonzero"
               id="svg_10"
             />
           </g>
@@ -311,7 +308,7 @@ export const RetroController: React.FC<RetroControllerProps> = (
             id="b4ce49c2-3a4b-4108-9ce5-4e442ce29fba"
           >
             <rect
-              vector-effect="non-scaling-stroke"
+              vectorEffect="non-scaling-stroke"
               x="-33.085"
               y="-33.085"
               rx="8"
@@ -319,14 +316,14 @@ export const RetroController: React.FC<RetroControllerProps> = (
               width="66.17"
               height="66.17"
               stroke=" rgb(0,0,0)"
-              stroke-width="0"
-              stroke-dasharray=" none"
-              stroke-linecap=" butt"
-              stroke-dashoffset="0"
-              stroke-linejoin=" miter"
-              stroke-miterlimit="4"
+              strokeWidth="0"
+              strokeDasharray=" none"
+              strokeLinecap="butt"
+              strokeDashoffset="0"
+              strokeLinejoin="miter"
+              strokeMiterlimit="4"
               fill=" rgb(229,219,209)"
-              fill-rule=" nonzero"
+              fillRule="nonzero"
               id="svg_11"
             />
           </g>
@@ -335,19 +332,19 @@ export const RetroController: React.FC<RetroControllerProps> = (
             id="a1dd771c-6dd6-42e5-be78-47cdad1e896b"
           >
             <circle
-              vector-effect="non-scaling-stroke"
+              vectorEffect="non-scaling-stroke"
               cx="0"
               cy="0"
               r="35"
               stroke=" rgb(0,0,0)"
-              stroke-width="0"
-              stroke-dasharray=" none"
-              stroke-linecap=" butt"
-              stroke-dashoffset="0"
-              stroke-linejoin=" miter"
-              stroke-miterlimit="4"
+              strokeWidth="0"
+              strokeDasharray=" none"
+              strokeLinecap="butt"
+              strokeDashoffset="0"
+              strokeLinejoin="miter"
+              strokeMiterlimit="4"
               fill=" rgb(196,69,69)"
-              fill-rule=" nonzero"
+              fillRule="nonzero"
               id="svg_12"
             />
           </g>
@@ -356,19 +353,19 @@ export const RetroController: React.FC<RetroControllerProps> = (
             id="a1dd771c-6dd6-42e5-be78-47cdad1e896b"
           >
             <circle
-              vector-effect="non-scaling-stroke"
+              vectorEffect="non-scaling-stroke"
               cx="0"
               cy="0"
               r="35"
               stroke=" rgb(0,0,0)"
-              stroke-width="0"
-              stroke-dasharray=" none"
-              stroke-linecap=" butt"
-              stroke-dashoffset="0"
-              stroke-linejoin=" miter"
-              stroke-miterlimit="4"
+              strokeWidth="0"
+              strokeDasharray=" none"
+              strokeLinecap="butt"
+              strokeDashoffset="0"
+              strokeLinejoin="miter"
+              strokeMiterlimit="4"
               fill=" rgb(196,69,69)"
-              fill-rule=" nonzero"
+              fillRule="nonzero"
               id="svg_13"
             />
           </g>
@@ -377,7 +374,7 @@ export const RetroController: React.FC<RetroControllerProps> = (
             id="b4ce49c2-3a4b-4108-9ce5-4e442ce29fba"
           >
             <rect
-              vector-effect="non-scaling-stroke"
+              vectorEffect="non-scaling-stroke"
               x="-33.085"
               y="-33.085"
               rx="5"
@@ -385,13 +382,13 @@ export const RetroController: React.FC<RetroControllerProps> = (
               width="66.17"
               height="66.17"
               stroke=" rgb(168,168,168)"
-              stroke-dasharray=" none"
-              stroke-linecap=" butt"
-              stroke-dashoffset="0"
-              stroke-linejoin=" miter"
-              stroke-miterlimit="4"
+              strokeDasharray=" none"
+              strokeLinecap="butt"
+              strokeDashoffset="0"
+              strokeLinejoin="miter"
+              strokeMiterlimit="4"
               fill=" rgb(204,190,177)"
-              fill-rule=" nonzero"
+              fillRule="nonzero"
               id="svg_14"
             />
           </g>
@@ -400,7 +397,7 @@ export const RetroController: React.FC<RetroControllerProps> = (
             id="d3784ada-745c-4eaf-b529-1373ee92f942"
           >
             <rect
-              vector-effect="non-scaling-stroke"
+              vectorEffect="non-scaling-stroke"
               x="-33.085"
               y="-33.085"
               rx="20"
@@ -408,13 +405,13 @@ export const RetroController: React.FC<RetroControllerProps> = (
               width="66.17"
               height="66.17"
               stroke=" rgb(255,255,255)"
-              stroke-dasharray=" none"
-              stroke-linecap=" butt"
-              stroke-dashoffset="0"
-              stroke-linejoin=" miter"
-              stroke-miterlimit="4"
+              strokeDasharray=" none"
+              strokeLinecap="butt"
+              strokeDashoffset="0"
+              strokeLinejoin="miter"
+              strokeMiterlimit="4"
               fill=" rgb(57,57,57)"
-              fill-rule=" nonzero"
+              fillRule="nonzero"
               id="svg_15"
             />
           </g>
@@ -423,7 +420,7 @@ export const RetroController: React.FC<RetroControllerProps> = (
             id="d3784ada-745c-4eaf-b529-1373ee92f942"
           >
             <rect
-              vector-effect="non-scaling-stroke"
+              vectorEffect="non-scaling-stroke"
               x="-33.085"
               y="-33.085"
               rx="20"
@@ -431,13 +428,13 @@ export const RetroController: React.FC<RetroControllerProps> = (
               width="66.17"
               height="66.17"
               stroke=" rgb(255,255,255)"
-              stroke-dasharray=" none"
-              stroke-linecap=" butt"
-              stroke-dashoffset="0"
-              stroke-linejoin=" miter"
-              stroke-miterlimit="4"
+              strokeDasharray=" none"
+              strokeLinecap="butt"
+              strokeDashoffset="0"
+              strokeLinejoin="miter"
+              strokeMiterlimit="4"
               fill=" rgb(57,57,57)"
-              fill-rule=" nonzero"
+              fillRule="nonzero"
               id="svg_16"
             />
           </g>
@@ -446,18 +443,18 @@ export const RetroController: React.FC<RetroControllerProps> = (
             id="116c4fef-472c-4d18-898d-643b26a19495"
           >
             <text
-              font-family="Lato"
+              fontFamily="Lato"
               font-size="44"
               font-style="normal"
-              font-weight="700"
+              fontWeight="700"
               stroke=" none"
-              stroke-dasharray=" none"
-              stroke-linecap=" butt"
-              stroke-dashoffset="0"
-              stroke-linejoin=" miter"
-              stroke-miterlimit="4"
+              strokeDasharray=" none"
+              strokeLinecap="butt"
+              strokeDashoffset="0"
+              strokeLinejoin="miter"
+              strokeMiterlimit="4"
               fill=" rgb(196,69,69)"
-              fill-rule=" nonzero"
+              fillRule="nonzero"
               id="svg_17"
             >
               <tspan x="-58.1" y="13.82" id="svg_18">
@@ -467,18 +464,18 @@ export const RetroController: React.FC<RetroControllerProps> = (
           </g>
           <g transform="matrix(0 0.39 -0.39 0 426.6 709.74)" id="svg_19">
             <text
-              font-family="Lato"
+              fontFamily="Lato"
               font-size="54"
               font-style="normal"
-              font-weight="700"
+              fontWeight="700"
               stroke=" none"
-              stroke-dasharray=" none"
-              stroke-linecap=" butt"
-              stroke-dashoffset="0"
-              stroke-linejoin=" miter"
-              stroke-miterlimit="4"
+              strokeDasharray=" none"
+              strokeLinecap="butt"
+              strokeDashoffset="0"
+              strokeLinejoin="miter"
+              strokeMiterlimit="4"
               fill=" rgb(196,69,69)"
-              fill-rule=" nonzero"
+              fillRule="nonzero"
               id="svg_20"
             >
               <tspan x="-18.01" y="16.96" id="svg_21">
@@ -491,15 +488,15 @@ export const RetroController: React.FC<RetroControllerProps> = (
               font-family="Lato"
               font-size="54"
               font-style="normal"
-              font-weight="700"
+              fontWeight="700"
               stroke=" none"
-              stroke-dasharray=" none"
-              stroke-linecap=" butt"
-              stroke-dashoffset="0"
-              stroke-linejoin=" miter"
-              stroke-miterlimit="4"
+              strokeDasharray=" none"
+              strokeLinecap="butt"
+              strokeDashoffset="0"
+              strokeLinejoin="miter"
+              strokeMiterlimit="4"
               fill=" rgb(196,69,69)"
-              fill-rule=" nonzero"
+              fillRule="nonzero"
               id="svg_23"
             >
               <tspan x="-19.17" y="16.96" id="svg_24">
@@ -509,18 +506,18 @@ export const RetroController: React.FC<RetroControllerProps> = (
           </g>
           <g transform="matrix(0 0.39 -0.39 0 511.87 584.75)" id="svg_25">
             <text
-              font-family="Lato"
+              fontFamily="Lato"
               font-size="44"
               font-style="normal"
-              font-weight="700"
+              fontWeight="700"
               stroke=" none"
-              stroke-dasharray=" none"
-              stroke-linecap=" butt"
-              stroke-dashoffset="0"
-              stroke-linejoin=" miter"
-              stroke-miterlimit="4"
+              strokeDasharray=" none"
+              strokeLinecap="butt"
+              strokeDashoffset="0"
+              strokeLinejoin="miter"
+              strokeMiterlimit="4"
               fill=" rgb(196,69,69)"
-              fill-rule=" nonzero"
+              fillRule="nonzero"
               id="svg_26"
             >
               <tspan x="-47.15" y="13.82" id="svg_27">
@@ -534,14 +531,14 @@ export const RetroController: React.FC<RetroControllerProps> = (
           >
             <motion.rect
               id="svg_28"
-              fill-rule=" nonzero"
-              fill=" rgb(57,57,57)"
-              stroke-miterlimit="4"
-              stroke-linejoin=" miter"
-              stroke-dashoffset="0"
-              stroke-linecap=" butt"
-              stroke-dasharray=" none"
-              stroke-width="6"
+              fillRule="nonzero"
+              fill="rgb(57,57,57)"
+              strokeMiterlimit="4"
+              strokeLinejoin="miter"
+              strokeDashoffset="0"
+              strokeLinecap="butt"
+              strokeDasharray=" none"
+              strokeWidth="6"
               stroke=" rgb(255,255,255)"
               height="66.17"
               width="66.17"
@@ -549,13 +546,15 @@ export const RetroController: React.FC<RetroControllerProps> = (
               x="-33.085"
               ry="6"
               rx="12"
-              vector-effect="non-scaling-stroke"
+              vectorEffect="non-scaling-stroke"
               whileHover={{
                 rotateY: -30,
                 skewY: -3,
                 scaleX: 1.15,
                 originX: -0.9,
               }}
+              whileTap={{ scale: 0.99, fill: "#c44545" }}
+              onTap={() => nextScreen(currentScreen + 1)}
               animate={controls}
               onHoverStart={() => {
                 setDirection({ ...defaultDirection, isRight: true });
@@ -571,14 +570,14 @@ export const RetroController: React.FC<RetroControllerProps> = (
           >
             <motion.rect
               id="svg_29"
-              fill-rule=" nonzero"
-              fill=" rgb(57,57,57)"
-              stroke-miterlimit="4"
-              stroke-linejoin=" miter"
-              stroke-dashoffset="0"
-              stroke-linecap=" butt"
-              stroke-dasharray=" none"
-              stroke-width="6"
+              fillRule="nonzero"
+              fill="rgb(57,57,57)"
+              strokeMiterlimit="4"
+              strokeLinejoin="miter"
+              strokeDashoffset="0"
+              strokeLinecap="butt"
+              strokeDasharray="none"
+              strokeWidth="6"
               stroke=" rgb(255,255,255)"
               height="66.17"
               width="66.17"
@@ -586,8 +585,9 @@ export const RetroController: React.FC<RetroControllerProps> = (
               x="-33.085"
               ry="6"
               rx="12"
-              vector-effect="non-scaling-stroke"
+              vectorEffect="non-scaling-stroke"
               animate={controls}
+              whileTap={{ scale: 0.99, fill: "#c44545" }}
               whileHover={{
                 rotateZ: -2,
                 rotateX: 30,
@@ -609,17 +609,19 @@ export const RetroController: React.FC<RetroControllerProps> = (
             <motion.rect
               animate={controls}
               id="svg_30"
-              fill-rule=" nonzero"
-              fill=" rgb(57,57,57)"
-              stroke-miterlimit="4"
-              stroke-linejoin=" miter"
-              stroke-dashoffset="0"
-              stroke-linecap=" butt"
-              stroke-dasharray=" none"
-              stroke-width="6"
+              fillRule="nonzero"
+              fill="rgb(57,57,57)"
+              strokeMiterlimit="4"
+              strokeLinejoin="miter"
+              strokeDashoffset="0"
+              strokeLinecap="butt"
+              strokeDasharray="none"
+              strokeWidth="6"
               stroke=" rgb(255,255,255)"
               height="66.17"
               width="66.17"
+              onTap={() => nextScreen(currentScreen - 1)}
+              whileTap={{ scale: 0.99, fill: "#c44545" }}
               whileHover={{
                 rotateY: -30,
                 skewY: -3,
@@ -636,7 +638,7 @@ export const RetroController: React.FC<RetroControllerProps> = (
               x="-33.085"
               ry="6"
               rx="12"
-              vector-effect="non-scaling-stroke"
+              vectorEffect="non-scaling-stroke"
             />
           </g>
           <g
@@ -646,17 +648,18 @@ export const RetroController: React.FC<RetroControllerProps> = (
             <motion.rect
               id="svg_31"
               animate={controls}
-              fill-rule=" nonzero"
-              fill=" rgb(57,57,57)"
-              stroke-miterlimit="4"
-              stroke-linejoin=" miter"
-              stroke-dashoffset="0"
-              stroke-linecap=" butt"
-              stroke-dasharray=" none"
-              stroke-width="6"
-              stroke=" rgb(255,255,255)"
+              fillRule="nonzero"
+              fill="rgb(57,57,57)"
+              strokeMiterlimit="4"
+              strokeLinejoin="miter"
+              strokeDashoffset="0"
+              strokeLinecap="butt"
+              strokeDasharray="none"
+              strokeWidth="6"
+              stroke="rgb(255,255,255)"
               height="66.17"
               width="66.17"
+              whileTap={{ scale: 0.99, fill: "#c44545" }}
               whileHover={{
                 rotateZ: 2,
                 rotateX: 10,
@@ -673,7 +676,7 @@ export const RetroController: React.FC<RetroControllerProps> = (
               x="-33.085"
               ry="6"
               rx="12"
-              vector-effect="non-scaling-stroke"
+              vectorEffect="non-scaling-stroke"
             />
           </g>
           <g
@@ -683,29 +686,29 @@ export const RetroController: React.FC<RetroControllerProps> = (
             <motion.rect
               id="svg_32"
               animate={controls}
-              fill-rule=" nonzero"
-              fill=" rgb(57,57,57)"
-              stroke-miterlimit="4"
-              stroke-linejoin=" miter"
-              stroke-dashoffset="0"
-              stroke-linecap=" butt"
-              stroke-dasharray=" none"
-              stroke-width="5.8"
-              stroke=" rgb(57,57,57)"
+              fillRule="nonzero"
+              fill="rgb(57,57,57)"
+              strokeMiterlimit="4"
+              strokeLinejoin="miter"
+              strokeDashoffset="0"
+              strokeLinecap="butt"
+              strokeDasharray="none"
+              strokeWidth="5.8"
+              stroke="rgb(57,57,57)"
               height="66.17"
               width="66.17"
               y="-33.085"
               x="-33.085"
               ry="6"
               rx="12"
-              vector-effect="non-scaling-stroke"
+              vectorEffect="non-scaling-stroke"
             />
           </g>
           <path
             fill="none"
             stroke="#000"
-            stroke-linejoin="undefined"
-            stroke-linecap="undefined"
+            strokeLinejoin="miter"
+            strokeLinecap="butt"
             opacity="undefined"
             d="m300,193"
             id="svg_34"
@@ -725,14 +728,14 @@ export const RetroController: React.FC<RetroControllerProps> = (
               opacity="NaN"
               d="m137.97192,-103.68162c249.4449,1 76.41953,173 213.39794,76c136.97841,-97 117.91905,22.0124 116.79212,45c-1.12693,22.9876 -15.86066,280 -20.1863,350c-4.32563,70 92.28019,56 102.37333,4c10.09314,-52 -119.67587,-480 83.62892,-510c203.30479,-30 269.63118,9.66672 268.18931,37.66672"
               id="svg_38"
-              stroke-width="15"
-              stroke-dasharray="2,2"
+              strokeWidth="15"
+              strokeDasharray="2,2"
             />
             <rect
               transform="rotate(89.9582 724.086 516.259)"
               stroke="#000"
               fill="none"
-              stroke-width="3"
+              strokeWidth="3"
               x="706.75078"
               y="513.75901"
               width="34.67049"
@@ -743,7 +746,7 @@ export const RetroController: React.FC<RetroControllerProps> = (
               transform="rotate(89.9582 723.086 516.26)"
               stroke="#000"
               fill="none"
-              stroke-width="3"
+              strokeWidth="3"
               x="705.7508"
               y="513.42646"
               width="34.67049"
@@ -758,7 +761,7 @@ export const RetroController: React.FC<RetroControllerProps> = (
               <rect
                 stroke="#000"
                 fill="none"
-                stroke-width="3"
+                strokeWidth="3"
                 x="721.47456"
                 y="518.54991"
                 width="20.22445"
@@ -768,7 +771,7 @@ export const RetroController: React.FC<RetroControllerProps> = (
               <rect
                 stroke="#000"
                 fill="none"
-                stroke-width="3"
+                strokeWidth="3"
                 x="724.36377"
                 y="513.88326"
                 width="14.44604"
@@ -784,7 +787,7 @@ export const RetroController: React.FC<RetroControllerProps> = (
               <rect
                 stroke="#000"
                 fill="none"
-                stroke-width="3"
+                strokeWidth="3"
                 x="728.14119"
                 y="518.54506"
                 width="20.22445"
@@ -794,7 +797,7 @@ export const RetroController: React.FC<RetroControllerProps> = (
               <rect
                 stroke="#000"
                 fill="none"
-                stroke-width="3"
+                strokeWidth="3"
                 x="731.0304"
                 y="513.87841"
                 width="14.44604"
@@ -810,7 +813,7 @@ export const RetroController: React.FC<RetroControllerProps> = (
               <rect
                 stroke="#000"
                 fill="none"
-                stroke-width="3"
+                strokeWidth="3"
                 x="734.47408"
                 y="518.05897"
                 width="20.22445"
@@ -820,7 +823,7 @@ export const RetroController: React.FC<RetroControllerProps> = (
               <rect
                 stroke="#000"
                 fill="none"
-                stroke-width="3"
+                strokeWidth="3"
                 x="737.36328"
                 y="513.39231"
                 width="14.44604"
@@ -836,7 +839,7 @@ export const RetroController: React.FC<RetroControllerProps> = (
               <rect
                 stroke="#000"
                 fill="none"
-                stroke-width="3"
+                strokeWidth="3"
                 x="740.47344"
                 y="517.09145"
                 width="20.22445"
@@ -846,7 +849,7 @@ export const RetroController: React.FC<RetroControllerProps> = (
               <rect
                 stroke="#000"
                 fill="none"
-                stroke-width="3"
+                strokeWidth="3"
                 x="743.36263"
                 y="512.4248"
                 width="14.44604"

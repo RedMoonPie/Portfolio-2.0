@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Grid } from "@mui/material";
+import { useAnimation } from "framer-motion";
 import { makeStyles } from "@mui/styles";
 import { RetroController } from "../Components/RetroController";
 import { CoverPage } from "./CoverPage";
+
+import { TvShadow } from "../AnimationStyles/Effects/TvShadow";
+import { Presentation } from "./Presentation";
+import { useScreen } from "./useScreen";
 export interface ScreenProps {}
 const useStyles = makeStyles(() => ({
   backgroundCover: {
@@ -100,16 +105,41 @@ const useStyles = makeStyles(() => ({
 }));
 
 export const Screen: React.FC<ScreenProps> = (props: ScreenProps) => {
+  const controls = useAnimation();
+  const screens = ["cover", "presentation"];
+  const { nextScreen, currentScreen, loadingAnimation } = useScreen();
+
   const classes = useStyles();
+  const selectScreen = (index: number) => {
+    switch (screens[index]) {
+      case "cover":
+        return (
+          <>
+            <CoverPage loadingAnimation={loadingAnimation} />
+          </>
+        );
+      case "presentation":
+        return (
+          <>
+            <Presentation loadingAnimation={loadingAnimation} />
+          </>
+        );
+      default:
+        return <></>;
+    }
+  };
 
   return (
     <Grid container>
       <Grid xs={8} container item className={classes.backgroundCover}>
-        <CoverPage />
+        {selectScreen(currentScreen)}
       </Grid>
       <Grid container item xs={4} spacing={2}>
         <Grid xs={12} item className={classes.retroControlContainer}>
-          <RetroController />
+          <RetroController
+            nextScreen={nextScreen}
+            currentScreen={currentScreen}
+          />
         </Grid>
       </Grid>
     </Grid>

@@ -11,10 +11,17 @@ import { useScreen } from "./useScreen";
 export interface ScreenProps {}
 const useStyles = makeStyles(() => ({
   backgroundCover: {
-    backgroundColor: "#ece6c2",
+    backgroundColor: "#ebd0a3",
     borderRadius: "10% 10% 10% 10%",
     height: "100vh",
     position: "relative",
+    overflowY: "scroll",
+    "&::-ms-overflow-style": "none" /* IE and Edge */,
+    scrollbarWidth: "none" /* Firefox */,
+    "&::-webkit-scrollbar": {
+      width: 0,
+      height: 0,
+    },
   },
   landsCape: {
     position: "relative",

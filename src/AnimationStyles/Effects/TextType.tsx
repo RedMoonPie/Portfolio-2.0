@@ -1,15 +1,17 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { letter, sentence } from "../Variants/TextVariants";
+import { makeStyles } from "@mui/styles";
 
 export interface TextType {
   text: string;
+  textStyles: string;
 }
 
-export const TextType: React.FC<TextType> = ({ text }) => {
+export const TextType: React.FC<TextType> = ({ text, textStyles }) => {
   return (
-    <motion.h3
-      className="load-screen--message"
+    <motion.div
+      className={textStyles}
       variants={sentence}
       initial="hidden"
       animate="visible"
@@ -21,6 +23,6 @@ export const TextType: React.FC<TextType> = ({ text }) => {
           </motion.span>
         );
       })}
-    </motion.h3>
+    </motion.div>
   );
 };

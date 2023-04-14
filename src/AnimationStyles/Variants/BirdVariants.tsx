@@ -1,4 +1,4 @@
-type repeatType = "reverse" | "mirror" | "loop" | undefined;
+export type repeatType = "reverse" | "mirror" | "loop" | undefined;
 
 export const bodyStyle = {
   hidden: {

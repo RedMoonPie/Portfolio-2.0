@@ -1,11 +1,10 @@
 import React from "react";
-import { Grid, Typography } from "@mui/material";
+import { Grid, Typography, Box } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import EiffelIcon from "../Assets/Landscape/eiffel-svgrepo.svg";
 import Neddle from "../Assets/Landscape/landmark-needle-svgrepo.svg";
 import Big from "../Assets/Landscape/ben-big-svgrepo.svg";
 import Australia from "../Assets/Landscape/australia-svgrepo.svg";
-
 import { Birds } from "../Components/Birds";
 import { Clouds } from "../Components/Clouds";
 import {
@@ -128,7 +127,7 @@ export const CoverPage: React.FC<CoverPageProps> = (props: CoverPageProps) => {
     <>
       <TvShadow />
       {!loadingAnimation && (
-        <>
+        <Grid container xs={12} style={{ overflow: "hidden" }}>
           <Grid item xs={12} className={classes.gridBirdContainer}>
             <Birds
               leftWingStyle={LeftWingStyle}
@@ -201,7 +200,7 @@ export const CoverPage: React.FC<CoverPageProps> = (props: CoverPageProps) => {
               Curly Coding
             </Typography>
           </Grid>
-        </>
+        </Grid>
       )}
     </>
   );

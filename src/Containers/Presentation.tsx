@@ -1,21 +1,27 @@
 import { Grid, Typography, Box } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { TvShadow } from "../AnimationStyles/Effects/TvShadow";
 import vintagePhoto from "../Assets/Photos/v_p_2.jpg";
+import gifHi from "../Assets/Gif/gifHi.gif";
+import gifStaticHi from "../Assets/Photos/staticHi.jpg";
+import typingGif from "../Assets/Gif/typingGif.gif";
+import staticTyping from "../Assets/Photos/staticTyping.jpg";
+
 import { makeStyles } from "@mui/styles";
 import { TextType } from "../AnimationStyles/Effects/TextType";
+import { motion } from "framer-motion";
 
 export interface PresentationProps {
   loadingAnimation: boolean;
 }
 const useStyles = makeStyles(() => ({
   imgSize: {
-    width: "90%",
+    width: "95%",
+    border: "solid 3px black",
     objectFit: "cover",
-    objectPosition: "35% 0",
-    height: "90%",
+    objectPosition: "40% 0",
+    height: "100%",
     filter: "grayscale(20%)",
-    opacity: "0.6",
   },
   presentationContainer: {
     padding: "40px",
@@ -36,22 +42,43 @@ const useStyles = makeStyles(() => ({
   containerParagraph: {
     borderRight: "solid 0.35vw #bda681",
   },
+  containerParagraphSpaced: {
+    borderLeft: "solid 0.35vw black",
+    borderRight: "solid 0.35vw black",
+    textAlign: "center",
+    marginTop: "15px",
+  },
   parentContainerParagraph: {
     borderBottom: "solid 0.15vw black",
   },
   textBoxHeader: {
-    fontSize: "4vw",
+    fontSize: "3vw",
     textAlign: "center",
+    fontFamily: "fatAbril",
   },
   textBoxSubHeader: {
-    fontSize: "1.1vw",
+    fontSize: "0.85vw",
+    fontFamily: "fatAbril",
   },
   textBoxNews: {
-    fontSize: "1vw",
+    fontFamily: "fatAbril",
+    fontSize: "1.35vw",
+    fontWeight: "bold",
     textAlign: "center",
     padding: "2vh 1vw 2vh 1vw",
     backgroundColor: "black",
     color: "#ebd0a3",
+  },
+  textBoxBody: {
+    fontSize: "1vw",
+  },
+  quote: {
+    marginTop: "10px",
+    fontSize: "0.9vw",
+    fontWeight: "bold",
+  },
+  artistQuote: {
+    fontSize: "0.9vw",
   },
   boxNewsContainer: {
     paddingLeft: "5px",
@@ -71,10 +98,22 @@ const useStyles = makeStyles(() => ({
     fontSize: "1.5vw",
   },
 }));
+
 export const Presentation: React.FC<PresentationProps> = (
   props: PresentationProps
 ) => {
   const classes = useStyles();
+  const [hiImg, setHiImg] = useState(gifStaticHi);
+  const [typingImg, setTypingImg] = useState(staticTyping);
+
+  const handleToggleHi = (isOver: boolean) => {
+    if (isOver) setHiImg(gifHi);
+    else setHiImg(gifStaticHi);
+  };
+  const handleToggleTyping = (isOver: boolean) => {
+    if (isOver) setTypingImg(typingGif);
+    else setTypingImg(staticTyping);
+  };
   const { loadingAnimation } = props;
   return (
     <div>
@@ -90,7 +129,11 @@ export const Presentation: React.FC<PresentationProps> = (
           >
             <Grid item container xs={9}>
               <Grid item xs={12}>
-                <TextType textStyles={classes.textBoxHeader} text="EMy text" />
+                <TextType
+                  stagerValue={0.2}
+                  textStyles={classes.textBoxHeader}
+                  text="< BETWEEN LINES />"
+                />
               </Grid>
             </Grid>
             <Grid
@@ -101,14 +144,20 @@ export const Presentation: React.FC<PresentationProps> = (
               className={classes.containerSubHeader}
             >
               <TextType
+                stagerValue={0.2}
                 textStyles={classes.textBoxSubHeader}
                 text="Editorial CurlyCoding"
               />
               <TextType
+                stagerValue={0.2}
                 textStyles={classes.textBoxSubHeader}
-                text="Coffe Time"
+                text="Coffee Time"
               />
-              <TextType textStyles={classes.textBoxSubHeader} text="No. 7" />
+              <TextType
+                stagerValue={0.2}
+                textStyles={classes.textBoxSubHeader}
+                text="No. 7"
+              />
             </Grid>
           </Grid>
 
@@ -120,12 +169,21 @@ export const Presentation: React.FC<PresentationProps> = (
             className={classes.containerLineHeader}
             style={{ margin: "10px 0px" }}
           >
-            <TextType textStyles={classes.textBoxSubHeader} text="Cod.004" />
             <TextType
+              stagerValue={0.2}
+              textStyles={classes.textBoxSubHeader}
+              text="Cod.004"
+            />
+            <TextType
+              stagerValue={0.1}
               textStyles={classes.textBoxSubHeader}
               text="Everyday is a good day to smile !"
             />
-            <TextType textStyles={classes.textBoxSubHeader} text="Bogotá" />
+            <TextType
+              stagerValue={0.2}
+              textStyles={classes.textBoxSubHeader}
+              text="Bogotá"
+            />
           </Grid>
 
           <Grid
@@ -140,34 +198,49 @@ export const Presentation: React.FC<PresentationProps> = (
                 <Grid container item xs={8} spacing={2}>
                   <Grid item xs={12}>
                     <TextType
+                      stagerValue={0.05}
                       textStyles={classes.textBoxSubtitle}
-                      text="First Subtitle"
+                      text="First Contact"
                     />
                     <TextType
+                      stagerValue={0.05}
                       textStyles={classes.textBoxSecondarySubtitle}
-                      text="Secondary Subtitle"
+                      text="Getting to Know Me"
                     />{" "}
                   </Grid>
                   <Grid item xs={12}>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Repellendus, obcaecati amet. Dolore ipsam tempore pariatur
-                    eaque obcaecati. Error, reprehenderit dicta?
+                    <TextType
+                      stagerValue={0.02}
+                      textStyles={classes.textBoxBody}
+                      text="Hello! My name is Diego, I am a smiley young man keen on learning, always looking for opportunities to improve and share with others. I value connections, good mood, and a broad perspective of life.
+                      "
+                    />{" "}
                   </Grid>
                   <Grid item xs={12}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Exercitationem corrupti quos sed nam ipsam atque ipsum
-                    dicta, voluptas reprehenderit dignissimos esse voluptatibus?
-                    Consequuntur, vero voluptatibus.
+                    <TextType
+                      stagerValue={0.02}
+                      textStyles={classes.textBoxBody}
+                      text="My friends and relatives consider me as a very analytical person, a problem solver; sometimes they say i have a bit of a philosopher mixed with an artist and a chess player, some sort of strategist.
+                      "
+                    />{" "}
                   </Grid>
                   <Grid item xs={12}>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Consectetur inventore labore, ab voluptate neque architecto
-                    cupiditate error dolorum expedita officia?
+                    <TextType
+                      stagerValue={0.02}
+                      textStyles={classes.textBoxBody}
+                      text="In my free time i like to listen to music (mostly rock), read literature books, navigate on the internet looking for new technologies related to the field of programming, and enjoy afternoons with my friends playing board games.
+                      "
+                    />{" "}
                   </Grid>
                 </Grid>
                 <Grid container item xs={4}>
-                  <img
-                    src={vintagePhoto}
+                  <motion.img
+                    onMouseOver={() => handleToggleHi(true)}
+                    onMouseOut={() => handleToggleHi(false)}
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 0.6, scale: 1 }}
+                    transition={{ duration: 3, ease: "backInOut" }}
+                    src={hiImg}
                     alt="Italian Trulli"
                     className={classes.imgSize}
                   />
@@ -175,17 +248,51 @@ export const Presentation: React.FC<PresentationProps> = (
               </Grid>
               <Grid container item xs={12}>
                 <TextType
-                  textStyles={classes.textBoxSubHeader}
-                  text="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt quasi dolorem esse illo optio tempore!"
+                  stagerValue={0.1}
+                  textStyles={classes.quote}
+                  text="Live as if you were to die tomorrow. Learn as if you were to live forever."
                 />
               </Grid>
               <Grid container item xs={12}>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Incidunt quasi dolorem esse illo optio tempore!
+                <TextType
+                  stagerValue={0.2}
+                  textStyles={classes.artistQuote}
+                  text="- Mahatma Gandhi"
+                />
               </Grid>
             </Grid>
             <Grid spacing={1} item xs={3} className={classes.boxNewsContainer}>
-              <TextType textStyles={classes.textBoxNews} text="Lorem" />
+              <TextType
+                stagerValue={0.2}
+                textStyles={classes.textBoxNews}
+                text="Soft Skills"
+              />
+              <TextType
+                stagerValue={0.2}
+                textStyles={classes.containerParagraphSpaced}
+                text="Collaboration"
+              />
+              <TextType
+                stagerValue={0.2}
+                textStyles={classes.containerParagraphSpaced}
+                text="Management of time"
+              />
+              <TextType
+                stagerValue={0.2}
+                textStyles={classes.containerParagraphSpaced}
+                text="Decision-making"
+              />
+              <TextType
+                stagerValue={0.2}
+                textStyles={classes.containerParagraphSpaced}
+                text="Critical Thinking"
+              />
+
+              <TextType
+                stagerValue={0.2}
+                textStyles={classes.containerParagraphSpaced}
+                text="Empathy"
+              />
             </Grid>
           </Grid>
 
@@ -199,50 +306,58 @@ export const Presentation: React.FC<PresentationProps> = (
             >
               <Grid container item xs={12}>
                 <TextType
+                  stagerValue={0.2}
                   textStyles={classes.textBoxSecondarySubtitle}
-                  text="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt quasi dolorem esse illo optio tempore!"
+                  text="Proffesional Background"
                 />
               </Grid>
               <Grid container item xs={12}>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Incidunt quasi dolorem esse illo optio tempore!
-              </Grid>
-              <Grid container item xs={12}>
-                <Grid container item xs={8} spacing={2}>
-                  <Grid item xs={12}>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Animi eum similique magni quo necessitatibus autem laborum,
-                    vel nihil deserunt quibusdam, maxime nemo quam nesciunt!
-                    Totam cumque quos aperiam maiores voluptatum.
-                  </Grid>
-                  <Grid item xs={12}>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Repellendus, obcaecati amet. Dolore ipsam tempore pariatur
-                    eaque obcaecati. Error, reprehenderit dicta?
-                  </Grid>
-                  <Grid item xs={12}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Exercitationem corrupti quos sed nam ipsam atque ipsum
-                    dicta, voluptas reprehenderit dignissimos esse voluptatibus?
-                    Consequuntur, vero voluptatibus.
-                  </Grid>
-                  <Grid item xs={12}>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Consectetur inventore labore, ab voluptate neque architecto
-                    cupiditate error dolorum expedita officia?
-                  </Grid>
-                </Grid>
                 <Grid container item xs={4}>
-                  <img
-                    src={vintagePhoto}
+                  <motion.img
+                    onMouseOver={() => handleToggleTyping(true)}
+                    onMouseOut={() => handleToggleTyping(false)}
+                    src={typingImg}
                     alt="Italian Trulli"
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 0.6, scale: 1 }}
+                    transition={{ duration: 3, ease: "backInOut" }}
                     className={classes.imgSize}
                   />
+                </Grid>
+                <Grid
+                  container
+                  item
+                  xs={8}
+                  spacing={2}
+                  style={{ paddingLeft: "10px" }}
+                >
+                  <Grid item xs={12}>
+                    <TextType
+                      stagerValue={0.02}
+                      textStyles={classes.textBoxBody}
+                      text="Diego is a FullStack developer with a degree in Systems engineering, with a profound love for programming and computing; since graduation he has worked on diverse projects that involve different set of technologies."
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextType
+                      stagerValue={0.02}
+                      textStyles={classes.textBoxBody}
+                      text="At university, he was involved in the development of different web applications. One of them was related to helping people implement the FAIR Model (Factor Analysis of Information Risk), creating simulations and getting feed back from it. During this time, he also worked helping fix bugs in code on different platforms; even though it wasn't an official job, it helped him to learn more about coding and different technologies."
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextType
+                      stagerValue={0.02}
+                      textStyles={classes.textBoxBody}
+                      text="After university, he landed a job in Kushki, a Latin American company focused on connecting latam with payments through the best technology; here he has acquired skills such as Node.JS, TypeScript, React.JS, Scala, Golang and many others, as well as a good understanding of the world of virtual payments."
+                    />
+                  </Grid>
                 </Grid>
               </Grid>
             </Grid>
             <Grid spacing={1} item xs={3} className={classes.boxNewsContainer}>
               <TextType
+                stagerValue={0.2}
                 textStyles={classes.textBoxNews}
                 text="Lorem, ipsum tempore!"
               />

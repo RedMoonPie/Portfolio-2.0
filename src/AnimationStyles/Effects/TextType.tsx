@@ -6,13 +6,18 @@ import { makeStyles } from "@mui/styles";
 export interface TextType {
   text: string;
   textStyles: string;
+  stagerValue: number;
 }
 
-export const TextType: React.FC<TextType> = ({ text, textStyles }) => {
+export const TextType: React.FC<TextType> = ({
+  text,
+  textStyles,
+  stagerValue,
+}) => {
   return (
     <motion.div
       className={textStyles}
-      variants={sentence}
+      variants={sentence(stagerValue)}
       initial="hidden"
       animate="visible"
     >

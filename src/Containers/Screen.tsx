@@ -1,17 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Grid } from "@mui/material";
 import { useAnimation } from "framer-motion";
 import { makeStyles } from "@mui/styles";
 import { RetroController } from "../Components/RetroController";
 import { CoverPage } from "./CoverPage";
-
-import { TvShadow } from "../AnimationStyles/Effects/TvShadow";
 import { Presentation } from "./Presentation";
 import { useScreen } from "./useScreen";
+import { Gallery } from "./Gallery";
+import { TimeLine } from "./TImeLine";
 export interface ScreenProps {}
 const useStyles = makeStyles(() => ({
   backgroundCover: {
+    userSelect: "none",
     backgroundColor: "#ebd0a3",
+    background: `url("https://www.transparenttextures.com/patterns/natural-paper.png")`,
     borderRadius: "10% 10% 10% 10%",
     height: "100vh",
     position: "relative",
@@ -113,7 +115,8 @@ const useStyles = makeStyles(() => ({
 
 export const Screen: React.FC<ScreenProps> = (props: ScreenProps) => {
   const controls = useAnimation();
-  const screens = ["cover", "presentation"];
+  const containerRef = useRef(null);
+  const screens = ["cover", "presentation", "gallery", "TimeLine"];
   const { nextScreen, currentScreen, loadingAnimation } = useScreen();
 
   const classes = useStyles();
@@ -131,14 +134,35 @@ export const Screen: React.FC<ScreenProps> = (props: ScreenProps) => {
             <Presentation loadingAnimation={loadingAnimation} />
           </>
         );
+
+      case "gallery":
+        return (
+          <>
+            <Gallery loadingAnimation={loadingAnimation} />
+          </>
+        );
+      case "TimeLine":
+        return (
+          <>
+            <TimeLine
+              loadingAnimation={loadingAnimation}
+              containerRef={containerRef}
+            />
+          </>
+        );
       default:
         return <></>;
     }
   };
-
   return (
     <Grid container>
-      <Grid xs={8} container item className={classes.backgroundCover}>
+      <Grid
+        xs={8}
+        container
+        ref={containerRef}
+        item
+        className={classes.backgroundCover}
+      >
         {selectScreen(currentScreen)}
       </Grid>
       <Grid container item xs={4} spacing={2}>

@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #6f5643;
+  background-image: url("https://www.transparenttextures.com/patterns/argyle.png");
 }
 @font-face {
   font-family: "sweetHipster";
@@ -14,4 +15,41 @@ body {
 @font-face {
   font-family: "Motherva";
   src: url(./Assets/Fonts/Motherva-qZAyl.otf);
+}
+
+@font-face {
+  font-family: "fatAbril";
+  src: url(./Assets/Fonts/AbrilFatface-Regular.ttf);
+}
+
+@font-face {
+  font-family: "NS";
+  src: url(./Assets/Fonts/NewspaperPersonalUseSemiExpandedRegular-7B0GB.ttf);
+}
+@font-face {
+  font-family: "broadwell";
+  src: url(./Assets/Fonts/Broadwell-Personal-Use-Only-Distressed.otf);
+}
+
+@font-face {
+  font-family: "fbs";
+  src: url(./Assets/Fonts/FBS.ttf);
+}
+
+@font-face {
+  font-family: "bock";
+  src: url(./Assets/Fonts/Bock_Personaluse.otf);
+}
+
+@font-face {
+  font-family: "60pop";
+  src: url(./Assets/Fonts/60s_Pop.ttf);
+}
+@font-face {
+  font-family: "neonPixel";
+  src: url(./Assets/Fonts/neon_pixel-7.ttf);
+}
+@font-face {
+  font-family: "neon";
+  src: url(./Assets/Fonts/Neon.ttf);
 }

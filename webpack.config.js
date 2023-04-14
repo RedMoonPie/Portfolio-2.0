@@ -34,6 +34,13 @@ module.exports = {
           name: "static/media/[name].[hash:8].[ext]",
         },
       },
+      {
+        test: /\.mp3$/,
+        loader: "file-loader",
+        options: {
+          name: "[path][name].[ext]",
+        },
+      },
     ],
   },
   resolve: {
